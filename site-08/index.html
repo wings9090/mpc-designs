@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>دائرة العيادات الطبية الشعبية | الدافئ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+<link rel="stylesheet" href="../shared/base.css">
+<style>
+/* 08 الدافئ: طابع إنساني قريب، طوبي على رمادي بارد، أزرار كبسولية وشريط خدمات أفقي */
+:root{--bg:#f4f5f7;--surface:#fff;--ink:#1f2933;--muted:#5d6b7a;--line:#e1e5ea;--line-strong:#aab4c0;--accent:#b8431c;--accent-ink:#fff;--radius:28px;--radius-btn:99px;--font:'Tajawal',system-ui,sans-serif;--font-display:'El Messiri',sans-serif}
+header .wrap{display:flex;align-items:center;gap:1.5rem;height:76px}
+header b{font-family:var(--font-display);font-size:1.25rem}
+header nav{display:flex;gap:1.4rem;margin-inline-start:auto;font-weight:500}
+header nav a{text-decoration:none}header nav a:hover{color:var(--accent)}
+.hero{position:relative;margin-bottom:7rem}
+.hero .pic{height:min(62vh,520px);border-radius:var(--radius);background:#3a2a22 url(https://www.mpc.gov.iq/upload/headlinepic2/ar/2.jpg) center/cover;background-blend-mode:soft-light}
+.hero .card{position:absolute;inset-inline-start:4%;bottom:-5.5rem;background:var(--surface);border-radius:var(--radius);padding:2.2rem;max-width:560px;box-shadow:0 24px 60px rgb(31 41 51 / .14)}
+.hero h1{font-size:clamp(1.8rem,3.6vw,2.8rem);font-weight:700}
+.hero p{color:var(--muted);margin:.8rem 0 1.4rem;font-size:1.08rem}
+.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:4rem}
+.trio button{display:flex;align-items:center;gap:1rem;padding:1.2rem 1.5rem;border-radius:99px;border:1.5px solid var(--line);background:var(--surface);cursor:pointer;font-weight:700;font-size:1.05rem;transition:border-color .2s,transform .2s}
+.trio button:hover{border-color:var(--accent);transform:translateY(-2px)}
+.trio i{font-size:1.6rem;color:var(--accent)}
+.sec{margin-bottom:4.5rem}
+.sec>h2{font-size:2rem;margin-bottom:.4rem}
+.sec>p.lead{color:var(--muted);margin-bottom:1.6rem}
+[data-mpc="services"] .m-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:1rem;padding-bottom:1rem}
+[data-mpc="services"] .m-card{flex:0 0 270px;scroll-snap-align:start;border:0;padding:1.6rem;min-height:230px}
+[data-mpc="services"] .m-card:nth-child(3n+1){background:#fbe9e2}
+[data-mpc="services"] .m-card:nth-child(3n+2){background:#e3e8ee}
+[data-mpc="services"] .m-card h3{font-family:var(--font-display);font-size:1.3rem;margin-top:auto}
+.soft{background:var(--surface);border-radius:var(--radius);padding:2.2rem}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.pair h2{font-size:1.5rem;margin-bottom:1rem}
+.m-card,.m-step,.m-committee{border-radius:20px}
+.m-step{border:0;background:#fbe9e2}
+dialog.m-dialog{border-radius:24px}
+textarea.m-input{border-radius:18px}
+footer{background:var(--ink);color:#cfd6de;border-radius:var(--radius) var(--radius) 0 0;padding:2.2rem 0;font-size:.92rem}
+@media (max-width:860px){header nav{display:none}.hero{margin-bottom:2rem}.hero .pic{height:240px}.hero .card{position:static;margin-top:-3rem;margin-inline:12px;padding:1.5rem}.trio,.pair{grid-template-columns:1fr}.soft{padding:1.4rem}.sec{margin-bottom:3rem}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><b data-org="name"></b><nav><a href="#services">الخدمات</a><a href="#driving">فحص السياقة</a><a href="#prices">الأسعار والأدوية</a><a href="#clinics">العيادات</a><a href="#news">الأخبار</a></nav></div></header>
+<main class="wrap">
+  <section class="hero">
+    <div class="pic" role="img" aria-label="مبنى من مباني الدائرة"></div>
+    <div class="card"><h1>نهتم بصحتك، قريباً من بيتك</h1><p data-org="intro"></p><a class="m-btn" href="#clinics"><i class="ph ph-map-pin"></i> ابحث عن عيادتك</a></div>
+  </section>
+  <div class="trio">
+    <button data-open="complaint"><i class="ph ph-megaphone"></i>تقديم شكوى</button>
+    <button data-open="meeting"><i class="ph ph-handshake"></i>مقابلة المدير العام</button>
+    <button data-open="nearest"><i class="ph ph-steering-wheel"></i>أقرب لجنة فحص سياقة</button>
+  </div>
+  <section class="sec" id="services"><h2>ماذا نقدم لك</h2><p class="lead">اسحب لاستعراض الخدمات.</p><div data-mpc="services"></div></section>
+  <section class="sec"><h2>علاجك الشهري في ثلاث خطوات</h2><p class="lead">لمرضى الضغط والسكري والقلب وباقي الأمراض المزمنة.</p><div data-mpc="steps"></div></section>
+  <section class="sec pair" id="prices">
+    <div class="soft"><h2>أسعار الخدمات</h2><div data-mpc="prices"></div></div>
+    <div class="soft" id="meds"><h2>هل دوائي متوفر؟</h2><div data-mpc="meds"></div></div>
+  </section>
+  <section class="sec soft" id="driving"><h2>لجان فحص السياقة</h2><div data-mpc="committees" style="margin-top:1rem"></div></section>
+  <section class="sec" id="clinics"><h2>دليل العيادات</h2><p class="lead">اكتب اسم منطقتك.</p><div data-mpc="clinics"></div></section>
+  <section class="sec pair" id="news">
+    <div class="soft"><h2>أخبار وإعلانات</h2><div data-mpc="news" data-limit="5"></div></div>
+    <div class="soft"><h2>أسئلة شائعة</h2><div data-mpc="faq"></div></div>
+  </section>
+  <section class="sec" id="jobs"><h2>فرص العمل</h2><p class="lead">إعلانات التشغيل الحالية.</p><div data-mpc="jobs"></div></section>
+  <section class="sec"><h2>خدمات إضافية</h2><p class="lead">أدوات صغيرة تسهّل مراجعتك.</p><div data-mpc="extras"></div></section>
+</main>
+<footer><div class="wrap"><b data-org="name"></b><br><span data-org="law"></span></div></footer>
+<script src="../shared/data.js"></script><script src="../shared/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>دائرة العيادات الطبية الشعبية | الأقرب إليك</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+<link rel="stylesheet" href="../shared/base.css">
+<style>
+/* 10 الأقرب إليك: محدد المواقع هو الواجهة. أخضر غابي غامق مع كهرماني، الأخبار كخط زمني */
+:root{--bg:#f3f6f2;--surface:#fff;--ink:#102418;--muted:#566b5d;--line:#d7e0d8;--line-strong:#9db3a2;--accent:#14532d;--accent-ink:#fff;--radius:14px;--font:'Alexandria',system-ui,sans-serif;--amber:#f4b740}
+.top{background:var(--accent);color:#fff}
+.top header{display:flex;align-items:center;gap:1.5rem;height:68px}
+.top header b{font-weight:600}
+.top nav{display:flex;gap:1.3rem;margin-inline-start:auto;font-size:.92rem;font-weight:300}
+.top nav a{text-decoration:none}.top nav a:hover{color:var(--amber)}
+.hero{display:grid;grid-template-columns:1fr 1.15fr;gap:3rem;padding-block:3rem 0;align-items:start}
+.hero h1{font-size:clamp(2rem,4vw,3.3rem);font-weight:800;line-height:1.2}
+.hero h1 em{font-style:normal;color:var(--amber)}
+.hero p{font-weight:300;opacity:.9;margin:1rem 0 1.6rem;max-width:44ch}
+.hero .two{display:flex;gap:.7rem;flex-wrap:wrap}
+.hero .two .m-btn{background:var(--amber);border-color:var(--amber);color:#102418}
+.hero .two .m-btn.ghost{background:transparent;color:#fff;border-color:rgb(255 255 255 / .45)}
+.finder{background:var(--surface);color:var(--ink);border-radius:var(--radius) var(--radius) 0 0;padding:1.6rem;box-shadow:0 -10px 50px rgb(0 0 0 / .18);align-self:end}
+.finder h2{font-size:1.2rem;font-weight:800;margin-bottom:1rem;display:flex;gap:.5rem;align-items:center}
+.finder h2 i{color:var(--accent)}
+.finder .m-committee{background:var(--bg);border:0}
+.finder .m-committee.nearest{background:#fdf3d7;box-shadow:inset 0 0 0 2px var(--amber)}
+.sec{padding-block:3.5rem}
+.sec>h2{font-size:1.8rem;font-weight:800;margin-bottom:1.5rem}
+.sec>h2 span{color:var(--muted);font-weight:300;font-size:1rem;display:block;margin-top:.3rem}
+[data-mpc="services"] .m-grid{grid-template-columns:repeat(4,1fr)}
+[data-mpc="services"] .m-card:nth-child(1){grid-column:span 2;grid-row:span 2;background:var(--accent);color:#fff;border:0;justify-content:flex-end;padding:2rem}
+[data-mpc="services"] .m-card:nth-child(1) h3{font-size:1.7rem}
+[data-mpc="services"] .m-card:nth-child(1) p{color:#cfe3d5;font-size:1.05rem}
+[data-mpc="services"] .m-card:nth-child(1)>i{color:var(--amber);font-size:3rem}
+[data-mpc="services"] .m-tag{background:var(--amber);color:#102418}
+.plate{background:var(--surface);border-block:1px solid var(--line)}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+.duo h2{font-size:1.4rem;font-weight:800;margin-bottom:1rem}
+[data-mpc="news"] .m-list{border-inline-start:2px solid var(--line);padding-inline-start:1.5rem;gap:0}
+[data-mpc="news"] .m-news{grid-template-columns:1fr;border:0;position:relative;padding-block:.9rem}
+[data-mpc="news"] .m-news::before{content:"";position:absolute;inset-inline-start:calc(-1.5rem - 7px);top:1.35rem;width:12px;height:12px;border-radius:50%;background:var(--surface);border:2px solid var(--accent)}
+footer{background:#0c2a18;color:#cfe3d5;padding-block:2rem;font-size:.9rem;font-weight:300}
+@media (max-width:900px){.top nav{display:none}.hero,.duo{grid-template-columns:1fr}.hero{gap:1.6rem;padding-top:2rem}[data-mpc="services"] .m-grid{grid-template-columns:1fr 1fr}.sec{padding-block:2.5rem}}
+</style>
+</head>
+<body>
+<div class="top"><div class="wrap">
+  <header><b data-org="name"></b><nav><a href="#services">الخدمات</a><a href="#prices">الأسعار والأدوية</a><a href="#clinics">العيادات</a><a href="#news">الأخبار</a><a href="#jobs">فرص العمل</a></nav></header>
+  <section class="hero">
+    <div>
+      <h1>أين أقرب <em>لجنة فحص سياقة</em> إليك؟</h1>
+      <p>حدّد موقعك لنرتب لك اللجان من الأقرب إلى الأبعد، ثم احجز موعدك من بوابة أور.</p>
+      <div class="two">
+        <button class="m-btn" data-open="complaint"><i class="ph ph-megaphone"></i> تقديم شكوى</button>
+        <button class="m-btn ghost" data-open="meeting"><i class="ph ph-handshake"></i> مقابلة المدير العام</button>
+      </div>
+    </div>
+    <div class="finder" id="driving"><h2><i class="ph ph-map-pin-area"></i>لجان فحص السياقة</h2><div data-mpc="committees"></div></div>
+  </section>
+</div></div>
+<main>
+  <section class="sec wrap" id="services"><h2>الخدمات النوعية<span data-org="intro"></span></h2><div data-mpc="services"></div></section>
+  <div class="plate"><section class="sec wrap duo" id="prices">
+    <div><h2>أسعار الخدمات</h2><div data-mpc="prices"></div></div>
+    <div id="meds"><h2>توفر الأدوية</h2><div data-mpc="meds"></div></div>
+  </section></div>
+  <section class="sec wrap" id="clinics"><h2>أين أقرب عيادة؟<span>ابحث باسم منطقتك</span></h2><div data-mpc="clinics"></div></section>
+  <div class="plate"><section class="sec wrap duo" id="news">
+    <div><h2>أخبار وإعلانات</h2><div data-mpc="news" data-limit="6"></div></div>
+    <div><h2>علاجك الشهري</h2><div data-mpc="steps" style="--gap:10px"></div><h2 style="margin-top:2rem">أسئلة شائعة</h2><div data-mpc="faq"></div></div>
+  </section></div>
+  <section class="sec wrap" id="jobs"><h2>فرص العمل</h2><div data-mpc="jobs"></div></section>
+  <div class="plate"><section class="sec wrap"><h2>خدمات إضافية</h2><div data-mpc="extras"></div></section></div>
+</main>
+<footer><div class="wrap"><span data-org="name"></span> / <span data-org="law"></span></div></footer>
+<script src="../shared/data.js"></script><script src="../shared/app.js"></script>
+</body>
+</html>

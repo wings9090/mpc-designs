@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>دائرة العيادات الطبية الشعبية | الشاشة المائلة</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@500;700;800&family=IBM+Plex+Sans+Arabic:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+<link rel="stylesheet" href="../shared/base.css">
+<style>
+/* 14 الشاشة المائلة: Container Scroll Animation وشريط Marquee وخط زمني، مستوحاة من مكوّنات 21st.dev ومكتوبة بـ CSS فقط */
+:root{--bg:#fff;--surface:#fff;--ink:#1c1917;--muted:#57534e;--line:#e7e5e4;--line-strong:#a8a29e;--accent:#be123c;--accent-ink:#fff;--radius:14px;--radius-btn:10px;--font:'IBM Plex Sans Arabic',system-ui,sans-serif;--font-display:'Baloo Bhaijaan 2',sans-serif}
+html,body{overflow-x:clip}
+.stage{overflow:hidden}
+header .wrap{display:flex;align-items:center;gap:1.5rem;height:70px}
+header b{font-family:var(--font-display);font-size:1.2rem}header nav{display:flex;gap:1.3rem;margin-inline-start:auto;font-size:.95rem}
+header a{text-decoration:none}header a:hover{color:var(--accent)}
+.hero{text-align:center;padding:3.5rem 20px 0}
+.hero h1{font-size:clamp(2.2rem,6vw,4.6rem);font-weight:800;line-height:1.15}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero p{color:var(--muted);font-size:1.1rem;margin:.8rem auto 1.6rem;max-width:50ch}
+.hero .a{display:flex;gap:.6rem;justify-content:center;flex-wrap:wrap}
+/* Container scroll */
+.stage{perspective:1100px;padding:3rem 16px 5rem}
+.device{max-width:1040px;margin-inline:auto;border:10px solid #1c1917;border-radius:30px;background:#1c1917;box-shadow:0 40px 90px rgb(28 25 23 / .28),0 10px 20px rgb(28 25 23 / .18);transform-origin:50% 0}
+.screen{background:#fafaf9;border-radius:20px;padding:1.4rem;min-height:440px}
+.tabs{display:flex;gap:.4rem;margin-bottom:1.2rem;border-bottom:1px solid var(--line);overflow-x:auto}
+.tabs button{padding:.6rem 1rem;border:0;background:none;cursor:pointer;font-weight:600;color:var(--muted);border-bottom:3px solid transparent;white-space:nowrap}
+.tabs button[aria-selected="true"]{color:var(--accent);border-color:var(--accent)}
+.pane[hidden]{display:none}
+.pane{max-height:460px;overflow:auto}
+@supports (animation-timeline:view()){
+  .device{animation:flat linear both;animation-timeline:view();animation-range:entry 10% cover 42%}
+  @keyframes flat{from{transform:rotateX(24deg) scale(1.04)}to{transform:none}}
+}
+/* Marquee */
+.marq{overflow:hidden;border-block:1px solid var(--line);padding-block:1rem;direction:ltr;mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.marq div{display:flex;gap:2.5rem;width:max-content;animation:slide 60s linear infinite;font-family:var(--font-display);font-size:1.3rem;color:var(--muted);direction:rtl}
+.marq span::after{content:"✚";color:var(--accent);margin-inline-start:2.5rem;font-size:.8em}
+@keyframes slide{to{transform:translateX(-50%)}}
+.sec{padding-block:4rem}
+.sec>h2,.duo h2{font-size:2.1rem;font-weight:800;margin-bottom:1.5rem}
+.tint{background:#fafaf9;border-block:1px solid var(--line)}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+[data-mpc="services"] .m-card{border:0;border-inline-start:4px solid var(--accent);border-radius:0 var(--radius) var(--radius) 0;background:#fafaf9}
+[dir=rtl] [data-mpc="services"] .m-card{border-radius:var(--radius) 0 0 var(--radius)}
+/* Timeline */
+[data-mpc="news"] .m-list{gap:0;border-inline-start:2px solid var(--line);margin-inline-start:.5rem}
+[data-mpc="news"] .m-news{grid-template-columns:150px 1fr;border:0;padding:1.1rem 1.6rem 1.1rem 0;position:relative}
+[data-mpc="news"] .m-news::before{content:"";position:absolute;inset-inline-start:-9px;top:1.5rem;width:16px;height:16px;border-radius:50%;background:#fff;border:3px solid var(--accent)}
+[data-mpc="news"] .m-news time{font-family:var(--font-display);font-size:1rem;color:var(--accent)}
+[data-mpc="news"] .m-news h3{font-size:1.1rem}
+footer{padding-block:2rem;color:var(--muted);font-size:.9rem;text-align:center}
+@media (max-width:860px){header nav{display:none}.duo{grid-template-columns:1fr}.sec{padding-block:2.8rem}.device{border-width:6px;border-radius:22px}.screen{padding:1rem}[data-mpc="news"] .m-news{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><b data-org="name"></b><nav><a href="#services">الخدمات</a><a href="#driving">فحص السياقة</a><a href="#screen">الأسعار والأدوية</a><a href="#news">الأخبار</a><a href="#jobs">فرص العمل</a></nav></div></header>
+<section class="hero">
+  <h1>كل ما تحتاجه من العيادة <em>في شاشة واحدة</em></h1>
+  <p>الأسعار وتوفر الأدوية ودليل العيادات قبل أن تغادر بيتك.</p>
+  <div class="a" data-mpc="actions"></div>
+</section>
+<div class="stage" id="screen"><div class="device"><div class="screen">
+  <div class="tabs" role="tablist">
+    <button role="tab" data-p="p-meds" aria-selected="true">توفر الأدوية</button>
+    <button role="tab" data-p="p-prices" aria-selected="false">أسعار الخدمات</button>
+    <button role="tab" data-p="p-clinics" aria-selected="false">دليل العيادات</button>
+    <button role="tab" data-p="p-driving" aria-selected="false">لجان السياقة</button>
+  </div>
+  <div class="pane" id="p-meds" data-mpc="meds"></div>
+  <div class="pane" id="p-prices" data-mpc="prices" hidden></div>
+  <div class="pane" id="p-clinics" data-mpc="clinics" hidden></div>
+  <div class="pane" id="p-driving" hidden><div data-mpc="committees" id="driving"></div></div>
+</div></div></div>
+<div class="marq" aria-hidden="true"><div id="marq"></div></div>
+<section class="sec wrap" id="services"><h2>الخدمات النوعية</h2><div data-mpc="services"></div></section>
+<div class="tint"><section class="sec wrap"><h2>علاجك الشهري في ثلاث خطوات</h2><div data-mpc="steps"></div></section></div>
+<section class="sec wrap duo" id="news"><div><h2>أخبار وإعلانات</h2><div data-mpc="news" data-limit="6"></div></div><div><h2>أسئلة شائعة</h2><div data-mpc="faq"></div></div></section>
+<div class="tint"><section class="sec wrap" id="jobs"><h2>فرص العمل</h2><div data-mpc="jobs"></div></section></div>
+<section class="sec wrap"><h2>خدمات إضافية</h2><div data-mpc="extras"></div></section>
+<footer class="wrap"><span data-org="law"></span></footer>
+<script src="../shared/data.js"></script><script src="../shared/app.js"></script>
+<script>
+document.querySelector('.tabs').addEventListener('click', e => {
+  const b = e.target.closest('button'); if (!b) return;
+  document.querySelectorAll('.tabs button').forEach(x => x.setAttribute('aria-selected', x === b));
+  document.querySelectorAll('.pane').forEach(p => p.hidden = p.id !== b.dataset.p);
+});
+const names = Object.values(window.MPC.clinics).flat().filter((_, i) => i % 3 === 0).map(n => `<span>عيادة ${n}</span>`).join('');
+document.getElementById('marq').innerHTML = names + names;
+</script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>دائرة العيادات الطبية الشعبية | الصحيفة</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Naskh+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+<link rel="stylesheet" href="../shared/base.css">
+<style>
+/* 04 الصحيفة: تصميم تحريري، الأخبار في الصدارة، خط نسخي لأن الأسلوب مطبوعة صحفية */
+:root{--bg:#fff;--surface:#fff;--ink:#141414;--muted:#5f5f5f;--line:#d9d9d9;--line-strong:#141414;--accent:#b3261e;--accent-ink:#fff;--radius:0px;--font:'Noto Naskh Arabic',serif;--font-display:'Amiri',serif}
+.mast{text-align:center;border-bottom:4px double var(--ink);padding-block:1.4rem 1rem}
+.mast .k{display:flex;justify-content:space-between;font-size:.85rem;color:var(--muted);margin-bottom:.6rem}
+.mast h1{font-size:clamp(2.2rem,6vw,4.2rem);font-weight:700}
+.mast nav{display:flex;justify-content:center;gap:1.6rem;margin-top:.8rem;padding-top:.7rem;border-top:1px solid var(--line);font-weight:600;flex-wrap:wrap}
+.mast nav a{text-decoration:none}.mast nav a:hover{color:var(--accent)}
+.front{display:grid;grid-template-columns:2fr 1fr;gap:2.5rem;padding-block:2rem;border-bottom:1px solid var(--ink)}
+.lead-story h2{font-size:clamp(1.8rem,3.4vw,2.8rem);margin-bottom:.8rem}
+.lead-story p{font-size:1.15rem;color:var(--muted);columns:2;column-gap:2rem;margin-bottom:1.4rem}
+.lead-story img{width:100%;aspect-ratio:16/8;object-fit:cover;margin-bottom:1.2rem;filter:grayscale(.25)}
+.side{border-inline-start:1px solid var(--line);padding-inline-start:2rem}
+.side h3{font-family:var(--font-display);font-size:1.3rem;border-bottom:2px solid var(--accent);padding-bottom:.3rem;margin-bottom:.4rem}
+.desk{display:grid;gap:.6rem;margin-bottom:1.5rem}
+.desk button{display:flex;justify-content:space-between;align-items:center;padding:.9rem 0;background:none;border:0;border-bottom:1px solid var(--line);cursor:pointer;font-weight:700;font-size:1.1rem;text-align:start}
+.desk button:hover{color:var(--accent)}
+.sec{padding-block:2.5rem;border-bottom:1px solid var(--ink)}
+.sec>h2{font-size:2rem;margin-bottom:1.4rem}
+.sec>h2::after{content:"";display:block;width:56px;height:3px;background:var(--accent);margin-top:.4rem}
+.cols{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2.2rem}
+.cols>div+div{border-inline-start:1px solid var(--line);padding-inline-start:2.2rem}
+.cols h3.h{font-family:var(--font-display);font-size:1.4rem;margin-bottom:.9rem}
+[data-mpc="services"] .m-grid{grid-template-columns:repeat(4,1fr);gap:0 2rem}
+[data-mpc="services"] .m-card{border:0;border-top:1px solid var(--line);padding:1.1rem 0;background:none}
+[data-mpc="services"] .m-card h3{font-family:var(--font-display);font-size:1.3rem}
+.m-news h3{font-family:var(--font-display);font-size:1.15rem;font-weight:700}
+.m-news{grid-template-columns:1fr}
+.m-card h3{font-family:var(--font-display)}
+footer{padding-block:1.6rem;font-size:.9rem;color:var(--muted);text-align:center}
+@media (max-width:900px){.front,.cols{grid-template-columns:1fr}.side,.cols>div+div{border:0;padding:0}.lead-story p{columns:1}[data-mpc="services"] .m-grid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<header class="wrap mast">
+  <div class="k"><span>جمهورية العراق / <span data-org="ministry"></span></span><button data-open="font" style="background:none;border:0;cursor:pointer;text-decoration:underline">تكبير الخط</button></div>
+  <h1 data-org="name"></h1>
+  <nav><a href="#news">الأخبار</a><a href="#services">الخدمات</a><a href="#driving">فحص السياقة</a><a href="#guide">الأسعار والأدوية</a><a href="#clinics">العيادات</a><a href="#jobs">فرص العمل</a></nav>
+</header>
+<main class="wrap">
+  <section class="front">
+    <article class="lead-story">
+      <img src="https://www.mpc.gov.iq/upload/headlinepic/ar/69.jpg" alt="" onerror="this.remove()">
+      <h2>لجان فحص السياقة تنتقل إلى العيادات وتعمل صباحاً ومساءً</h2>
+      <p>تستقبل اللجنة الطبية في عيادة الإسكان الراغبين بالحصول على إجازة السوق أو تجديدها خلال الدوامين، وهي واحدة من اللجان التي حُددت أماكن عملها في عيادات بغداد بجانبي الكرخ والرصافة. يشمل الفحص اللياقة البدنية والنظر وفحص المخدرات، والتقديم إلكتروني عبر بوابة أور.</p>
+      <button class="m-btn" data-open="nearest"><i class="ph ph-steering-wheel"></i> اعرف أقرب لجنة إليك</button>
+    </article>
+    <aside class="side">
+      <h3>مكتب المواطن</h3>
+      <div class="desk">
+        <button data-open="complaint">تقديم شكوى <i class="ph ph-arrow-left"></i></button>
+        <button data-open="meeting">طلب مقابلة المدير العام <i class="ph ph-arrow-left"></i></button>
+        <button data-open="track">متابعة شكوى سابقة <i class="ph ph-arrow-left"></i></button>
+      </div>
+      <h3 id="news">آخر الأخبار</h3>
+      <div data-mpc="news" data-limit="5"></div>
+    </aside>
+  </section>
+  <section class="sec" id="services"><h2>الخدمات النوعية</h2><div data-mpc="services"></div></section>
+  <section class="sec" id="guide"><h2>دليل المراجع</h2><div class="cols">
+    <div><h3 class="h">أسعار الخدمات</h3><div data-mpc="prices"></div></div>
+    <div><h3 class="h">توفر الأدوية</h3><div data-mpc="meds"></div></div>
+    <div><h3 class="h">أسئلة شائعة</h3><div data-mpc="faq"></div></div>
+  </div></section>
+  <section class="sec" id="driving"><h2>لجان فحص السياقة</h2><div data-mpc="committees"></div></section>
+  <section class="sec" id="clinics"><h2>دليل العيادات</h2><div data-mpc="clinics"></div></section>
+  <section class="sec" id="jobs"><h2>إعلانات التشغيل</h2><div data-mpc="jobs"></div></section>
+  <section class="sec"><h2>علاجك الشهري</h2><div data-mpc="steps"></div></section>
+</main>
+<footer class="wrap"><span data-org="law"></span></footer>
+<script src="../shared/data.js"></script><script src="../shared/app.js"></script>
+</body>
+</html>

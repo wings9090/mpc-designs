@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>دائرة العيادات الطبية الشعبية | المسارات</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+<link rel="stylesheet" href="../shared/base.css">
+<style>
+/* 13 المسارات: خلفية Background Paths وبطاقات Spotlight، مستوحاة من مكوّنات 21st.dev ومكتوبة بـ CSS و JavaScript عادي */
+:root{--bg:#fafafa;--surface:#fff;--ink:#171717;--muted:#5f5f5f;--line:#e5e5e5;--line-strong:#a3a3a3;--accent:#047857;--accent-ink:#fff;--radius:18px;--radius-btn:14px;--font:'Cairo',system-ui,sans-serif}
+header{position:absolute;inset-inline:0;z-index:3}
+header .wrap{display:flex;align-items:center;gap:1.5rem;height:72px}
+header b{font-weight:800}header nav{display:flex;gap:1.3rem;margin-inline-start:auto;font-weight:600;font-size:.95rem}
+header a{text-decoration:none}header a:hover{color:var(--accent)}
+.hero{position:relative;min-height:100dvh;display:grid;place-items:center;overflow:hidden;text-align:center;padding:96px 20px 60px}
+.paths{position:absolute;inset:0;width:100%;height:100%;color:var(--accent);pointer-events:none}
+.paths path{fill:none;stroke:currentColor;stroke-dasharray:.35 .65;animation:flow linear infinite}
+@keyframes flow{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+.hero .in{position:relative;max-width:900px}
+.hero h1{font-size:clamp(2.4rem,7vw,5.5rem);font-weight:800;line-height:1.15}
+.hero h1 span{display:inline-block;opacity:0;transform:translateY(40px);animation:rise .9s cubic-bezier(.22,1,.36,1) forwards;animation-delay:calc(var(--i)*90ms)}
+@keyframes rise{to{opacity:1;transform:none}}
+.hero p{color:var(--muted);font-size:1.15rem;margin:1.2rem auto 2rem;max-width:50ch}
+.cta{display:inline-flex;gap:.6rem;flex-wrap:wrap;justify-content:center;padding:.5rem;border-radius:22px;background:rgb(255 255 255 / .7);backdrop-filter:blur(10px);border:1px solid var(--line);box-shadow:0 12px 40px rgb(4 120 87 / .12)}
+.sec{padding-block:4.5rem}
+.sec>h2,.duo h2{font-size:2rem;font-weight:800;margin-bottom:1.5rem}
+.soft{background:var(--surface);border-block:1px solid var(--line)}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+/* Spotlight cards */
+.spot .m-card,.spot .m-step{position:relative;overflow:hidden;isolation:isolate}
+.spot .m-card::before,.spot .m-step::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(260px circle at var(--mx,-999px) var(--my,-999px),rgb(4 120 87 / .16),transparent 70%);opacity:0;transition:opacity .25s}
+.spot .m-card:hover::before,.spot .m-step:hover::before{opacity:1}
+.spot .m-card:hover,.spot .m-step:hover{border-color:rgb(4 120 87 / .45)}
+footer{padding-block:2rem;color:var(--muted);font-size:.9rem;text-align:center}
+@media (max-width:860px){header nav{display:none}.duo{grid-template-columns:1fr}.sec{padding-block:3rem}}
+@media (prefers-reduced-motion:reduce){.paths path{stroke-dasharray:none}.hero h1 span{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><b data-org="name"></b><nav><a href="#services">الخدمات</a><a href="#driving">فحص السياقة</a><a href="#prices">الأسعار والأدوية</a><a href="#clinics">العيادات</a><a href="#news">الأخبار</a></nav></div></header>
+<section class="hero">
+  <svg class="paths" viewBox="0 0 696 316" preserveAspectRatio="xMidYMid slice" aria-hidden="true"></svg>
+  <div class="in">
+    <h1 id="title">رعاية صحية قريبة منك</h1>
+    <p data-org="intro"></p>
+    <div class="cta" data-mpc="actions"></div>
+  </div>
+</section>
+<section class="sec wrap spot" id="services"><h2>الخدمات النوعية</h2><div data-mpc="services"></div></section>
+<div class="soft"><section class="sec wrap" id="driving"><h2>لجان فحص السياقة</h2><div data-mpc="committees"></div></section></div>
+<section class="sec wrap duo" id="prices"><div><h2>أسعار الخدمات</h2><div data-mpc="prices"></div></div><div><h2>توفر الأدوية</h2><div data-mpc="meds"></div></div></section>
+<div class="soft"><section class="sec wrap spot"><h2>علاجك الشهري في ثلاث خطوات</h2><div data-mpc="steps"></div></section></div>
+<section class="sec wrap" id="clinics"><h2>دليل العيادات</h2><div data-mpc="clinics"></div></section>
+<div class="soft"><section class="sec wrap duo" id="news"><div><h2>أخبار وإعلانات</h2><div data-mpc="news" data-limit="6"></div></div><div><h2>أسئلة شائعة</h2><div data-mpc="faq"></div></div></section></div>
+<section class="sec wrap spot" id="jobs"><h2>فرص العمل</h2><div data-mpc="jobs"></div></section>
+<div class="soft"><section class="sec wrap spot"><h2>خدمات إضافية</h2><div data-mpc="extras"></div></section></div>
+<footer class="wrap"><span data-org="law"></span></footer>
+<script src="../shared/data.js"></script><script src="../shared/app.js"></script>
+<script>
+(function () {
+  const svg = document.querySelector('.paths');
+  let html = '';
+  [1, -1].forEach(pos => {
+    for (let i = 0; i < 30; i++) {
+      const a = 380 - i * 5 * pos, b = 189 + i * 6;
+      html += `<path pathLength="1" d="M-${a} -${b}C-${a} -${b} -${312 - i * 5 * pos} ${216 - i * 6} ${152 - i * 5 * pos} ${343 - i * 6}C${616 - i * 5 * pos} ${470 - i * 6} ${684 - i * 5 * pos} ${875 - i * 6} ${684 - i * 5 * pos} ${875 - i * 6}" stroke-width="${(.5 + i * .03).toFixed(2)}" stroke-opacity="${(.08 + i * .018).toFixed(3)}" style="animation-duration:${18 + (i * 7) % 12}s;animation-delay:-${(i * 3) % 17}s"/>`;
+    }
+  });
+  svg.innerHTML = html;
+  const h = document.getElementById('title');
+  h.innerHTML = h.textContent.split(' ').map((w, i) => `<span style="--i:${i}">${w}</span>`).join(' ');
+  document.addEventListener('pointermove', e => {
+    const c = e.target.closest('.spot .m-card, .spot .m-step'); if (!c) return;
+    const r = c.getBoundingClientRect(); c.style.setProperty('--mx', (e.clientX - r.left) + 'px'); c.style.setProperty('--my', (e.clientY - r.top) + 'px');
+  });
+})();
+</script>
+</body>
+</html>

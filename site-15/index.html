@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>دائرة العيادات الطبية الشعبية | الشفق</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+<link rel="stylesheet" href="../shared/base.css">
+<style>
+/* 15 الشفق: خلفية Aurora وشريط Dock وشبكة Feature Hover، مستوحاة من مكوّنات 21st.dev ومكتوبة بـ CSS و JavaScript عادي */
+:root{--bg:#f8fafc;--surface:#fff;--ink:#0f172a;--muted:#526077;--line:#e2e8f0;--line-strong:#94a3b8;--accent:#0f766e;--accent-ink:#fff;--radius:16px;--radius-btn:99px;--font:'Vazirmatn',system-ui,sans-serif}
+body{padding-bottom:96px}
+.hero{position:relative;min-height:92dvh;display:flex;flex-direction:column;justify-content:center;overflow:hidden;padding:5rem 0 4rem}
+.aurora{position:absolute;inset:-10px;pointer-events:none;opacity:.6;
+  background-image:repeating-linear-gradient(100deg,#f8fafc 0%,#f8fafc 7%,transparent 10%,transparent 12%,#f8fafc 16%),repeating-linear-gradient(100deg,#2dd4bf 10%,#7dd3fc 15%,#6ee7b7 20%,#99f6e4 25%,#38bdf8 30%);
+  background-size:300%,200%;filter:blur(12px);animation:aurora 60s linear infinite;
+  mask-image:radial-gradient(ellipse at 0% 0%,#000 10%,transparent 70%)}
+@keyframes aurora{from{background-position:50% 50%,50% 50%}to{background-position:350% 50%,350% 50%}}
+.hero .wrap{position:relative;width:100%}
+.hero small{display:block;font-weight:600;color:var(--accent);margin-bottom:1rem}
+.hero h1{font-size:clamp(2.4rem,6.5vw,5.2rem);font-weight:800;line-height:1.2;max-width:14ch}
+.hero p{font-size:1.15rem;font-weight:300;color:var(--muted);margin:1.2rem 0 2rem;max-width:46ch}
+.hero .a{display:flex;gap:.6rem;flex-wrap:wrap}
+.sec{padding-block:4.5rem}
+.sec>h2,.duo h2{font-size:2rem;font-weight:800;margin-bottom:1.6rem}
+.card{background:var(--surface);border-block:1px solid var(--line)}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+/* Feature hover grid */
+.feat .m-grid{grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line);border-inline-start:1px solid var(--line)}
+.feat .m-card{position:relative;background:none;border:0;border-bottom:1px solid var(--line);border-inline-end:1px solid var(--line);border-radius:0;padding:2rem 1.6rem 2rem 2rem;overflow:hidden;gap:.6rem;text-decoration:none;text-align:start}
+.feat .m-card::before{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgb(15 118 110 / .1),transparent);opacity:0;transition:opacity .25s}
+.feat .m-card::after{content:"";position:absolute;inset-inline-start:0;top:4.2rem;width:4px;height:1.6rem;border-radius:0 4px 4px 0;background:var(--line-strong);transition:height .2s,background .2s,top .2s}
+[dir=rtl] .feat .m-card::after{border-radius:4px 0 0 4px}
+.feat .m-card:hover::before{opacity:1}
+.feat .m-card:hover::after{height:2.4rem;top:3.8rem;background:var(--accent)}
+.feat .m-card>*{position:relative}
+.feat .m-card h3{transition:transform .2s}
+.feat .m-card:hover h3{transform:translateX(-8px)}
+.feat .m-card>i{color:var(--muted)}
+/* Dock */
+.dock{position:fixed;inset-inline:0;bottom:14px;z-index:20;display:flex;justify-content:center;pointer-events:none}
+.dock ul{pointer-events:auto;list-style:none;margin:0;padding:.5rem .7rem;display:flex;align-items:flex-end;gap:.5rem;height:66px;border-radius:22px;background:rgb(255 255 255 / .82);backdrop-filter:blur(16px);border:1px solid var(--line);box-shadow:0 18px 50px rgb(15 23 42 / .16)}
+.dock a,.dock button{--s:1;display:grid;place-items:center;width:calc(46px*var(--s));height:calc(46px*var(--s));border-radius:14px;border:0;background:#eef2f6;color:var(--ink);cursor:pointer;font-size:calc(1.35rem*var(--s));text-decoration:none;transition:width .12s,height .12s,font-size .12s;position:relative}
+.dock .p{background:var(--accent);color:#fff}
+.dock [data-tip]:hover::after{content:attr(data-tip);position:absolute;bottom:calc(100% + 10px);left:50%;transform:translateX(-50%);white-space:nowrap;font-size:.78rem;background:var(--ink);color:#fff;padding:.2rem .6rem;border-radius:8px}
+footer{padding-block:2rem;color:var(--muted);font-size:.9rem;text-align:center}
+@media (max-width:1000px){.feat .m-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:860px){.duo{grid-template-columns:1fr}.sec{padding-block:3rem}.hero{min-height:auto;padding:3rem 0}.dock ul{gap:.35rem;padding:.4rem .5rem}.dock a,.dock button{width:40px;height:40px;font-size:1.2rem}}
+@media (max-width:520px){.feat .m-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<section class="hero">
+  <div class="aurora" aria-hidden="true"></div>
+  <div class="wrap">
+    <small data-org="name"></small>
+    <h1 data-org="tagline"></h1>
+    <p data-org="intro"></p>
+    <div class="a" data-mpc="actions"></div>
+  </div>
+</section>
+<section class="sec wrap feat" id="services"><h2>الخدمات النوعية</h2><div data-mpc="services"></div></section>
+<div class="card"><section class="sec wrap" id="driving"><h2>لجان فحص السياقة</h2><div data-mpc="committees"></div></section></div>
+<section class="sec wrap duo" id="prices"><div><h2>أسعار الخدمات</h2><div data-mpc="prices"></div></div><div id="meds"><h2>توفر الأدوية</h2><div data-mpc="meds"></div></div></section>
+<div class="card"><section class="sec wrap"><h2>علاجك الشهري في ثلاث خطوات</h2><div data-mpc="steps"></div></section></div>
+<section class="sec wrap" id="clinics"><h2>دليل العيادات</h2><div data-mpc="clinics"></div></section>
+<div class="card"><section class="sec wrap duo" id="news"><div><h2>أخبار وإعلانات</h2><div data-mpc="news" data-limit="6"></div></div><div><h2>أسئلة شائعة</h2><div data-mpc="faq"></div></div></section></div>
+<section class="sec wrap" id="jobs"><h2>فرص العمل</h2><div data-mpc="jobs"></div></section>
+<div class="card"><section class="sec wrap feat"><h2>خدمات إضافية</h2><div data-mpc="extras"></div></section></div>
+<footer class="wrap"><span data-org="law"></span></footer>
+<nav class="dock" aria-label="تنقل سريع"><ul>
+  <li><a href="#services" data-tip="الخدمات" aria-label="الخدمات"><i class="ph ph-heartbeat"></i></a></li>
+  <li><a href="#meds" data-tip="الأدوية" aria-label="الأدوية"><i class="ph ph-pill"></i></a></li>
+  <li><a href="#clinics" data-tip="العيادات" aria-label="العيادات"><i class="ph ph-map-pin"></i></a></li>
+  <li><button class="p" data-open="nearest" data-tip="أقرب لجنة سياقة" aria-label="أقرب لجنة سياقة"><i class="ph ph-steering-wheel"></i></button></li>
+  <li><button data-open="complaint" data-tip="شكوى" aria-label="تقديم شكوى"><i class="ph ph-megaphone"></i></button></li>
+  <li><button data-open="meeting" data-tip="مقابلة المدير العام" aria-label="مقابلة المدير العام"><i class="ph ph-handshake"></i></button></li>
+  <li><a href="#news" data-tip="الأخبار" aria-label="الأخبار"><i class="ph ph-newspaper"></i></a></li>
+</ul></nav>
+<script src="../shared/data.js"></script><script src="../shared/app.js"></script>
+<script>
+(function () {
+  const dock = document.querySelector('.dock ul'), items = [...dock.querySelectorAll('a,button')];
+  if (matchMedia('(pointer: coarse)').matches || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  dock.addEventListener('pointermove', e => items.forEach(el => {
+    const r = el.getBoundingClientRect(), d = Math.abs(e.clientX - (r.left + r.width / 2));
+    el.style.setProperty('--s', (1 + .45 * Math.max(0, 1 - d / 130)).toFixed(3));
+  }));
+  dock.addEventListener('pointerleave', () => items.forEach(el => el.style.setProperty('--s', 1)));
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>دائرة العيادات الطبية الشعبية | ليلي</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@300;400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+<link rel="stylesheet" href="../shared/base.css">
+<style>
+/* 03 ليلي: واجهة داكنة هادئة بلون نعناعي واحد، خطوط شعرية بدل البطاقات */
+:root{--bg:#0f1011;--surface:#17181a;--ink:#f1f2f2;--muted:#9a9fa6;--line:#26282b;--line-strong:#3a3d42;--accent:#3ecf8e;--accent-ink:#06241a;--radius:10px;--ok:#3ecf8e;--warn:#f0b354;--bad:#f07b7b;--font:'Noto Kufi Arabic',system-ui,sans-serif}
+header{position:sticky;top:0;z-index:10;background:rgb(15 16 17 / .85);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;gap:1.4rem;height:64px;font-size:.9rem}
+header b{font-weight:600}header nav{display:flex;gap:1.2rem;margin-inline-start:auto;color:var(--muted)}
+header a{text-decoration:none}header a:hover{color:var(--ink)}
+.hero{padding-block:5rem 3rem;border-bottom:1px solid var(--line)}
+.hero h1{font-size:clamp(2rem,4.4vw,3.5rem);font-weight:800;max-width:24ch;letter-spacing:-.01em}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero p{color:var(--muted);font-size:1.1rem;font-weight:300;margin:1.2rem 0 2rem;max-width:52ch}
+.cmd{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.cmd button{display:flex;justify-content:space-between;align-items:center;gap:1rem;background:var(--surface);border:0;border-inline-end:1px solid var(--line);padding:1.3rem 1.4rem;cursor:pointer;font-weight:600;font-size:1.02rem;text-align:start;transition:background .2s}
+.cmd button:last-child{border:0}.cmd button:hover{background:#1e2023}
+.cmd i{font-size:1.5rem;color:var(--accent)}
+.row{display:grid;grid-template-columns:260px 1fr;gap:3rem;padding-block:3.5rem;border-bottom:1px solid var(--line)}
+.row>h2{font-size:1.5rem;font-weight:600;position:sticky;top:90px;align-self:start}
+.row>h2 small{display:block;color:var(--muted);font-size:.9rem;font-weight:300;margin-top:.5rem;line-height:1.7}
+[data-mpc="services"] .m-grid{gap:0;grid-template-columns:1fr 1fr;border-top:1px solid var(--line)}
+[data-mpc="services"] .m-card{background:none;border:0;border-bottom:1px solid var(--line);border-radius:0;padding:1.4rem .2rem;display:grid;grid-template-columns:auto 1fr;column-gap:1rem}
+[data-mpc="services"] .m-card>i{grid-row:span 3}[data-mpc="services"] .m-tag{grid-column:2}
+.m-chip[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem}
+.split h3.h{font-size:1.05rem;margin-bottom:1rem;color:var(--muted);font-weight:400}
+footer{padding-block:2rem;color:var(--muted);font-size:.88rem}
+@media (max-width:900px){header nav{display:none}.row,.split,.cmd,[data-mpc="services"] .m-grid{grid-template-columns:1fr}.row{gap:1.2rem;padding-block:2.5rem}.row>h2{position:static}.cmd button{border-inline-end:0;border-bottom:1px solid var(--line)}.hero{padding-block:3rem 2rem}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><b data-org="name"></b><nav><a href="#services">الخدمات</a><a href="#driving">فحص السياقة</a><a href="#prices">الأسعار والأدوية</a><a href="#clinics">العيادات</a><a href="#news">الأخبار</a></nav></div></header>
+<main class="wrap">
+  <section class="hero">
+    <h1>علاجك المزمن وطبيبك الاستشاري <em>في عيادة حيّك</em></h1>
+    <p data-org="intro"></p>
+    <div class="cmd">
+      <button data-open="complaint">تقديم شكوى <i class="ph ph-megaphone"></i></button>
+      <button data-open="meeting">مقابلة المدير العام <i class="ph ph-handshake"></i></button>
+      <button data-open="nearest">أقرب لجنة فحص سياقة <i class="ph ph-steering-wheel"></i></button>
+    </div>
+  </section>
+  <section class="row" id="services"><h2>الخدمات النوعية<small>ما تقدمه العيادات واللجان والمختبر.</small></h2><div data-mpc="services"></div></section>
+  <section class="row" id="driving"><h2>لجان فحص السياقة<small>رتّبها حسب قربها منك.</small></h2><div data-mpc="committees"></div></section>
+  <section class="row" id="prices"><h2>الأسعار والأدوية</h2><div class="split"><div><h3 class="h">أسعار الخدمات</h3><div data-mpc="prices"></div></div><div><h3 class="h">توفر الأدوية</h3><div data-mpc="meds"></div></div></div></section>
+  <section class="row" id="steps"><h2>العلاج الشهري<small>لمرضى الأمراض المزمنة.</small></h2><div data-mpc="steps"></div></section>
+  <section class="row" id="clinics"><h2>دليل العيادات</h2><div data-mpc="clinics"></div></section>
+  <section class="row" id="news"><h2>أخبار وإعلانات</h2><div data-mpc="news" data-limit="6"></div></section>
+  <section class="row" id="jobs"><h2>فرص العمل</h2><div data-mpc="jobs"></div></section>
+  <section class="row"><h2>أسئلة وخدمات إضافية</h2><div><div data-mpc="faq"></div><div data-mpc="extras" style="margin-top:2rem"></div></div></section>
+</main>
+<footer class="wrap"><span data-org="law"></span></footer>
+<script src="../shared/data.js"></script><script src="../shared/app.js"></script>
+</body>
+</html>

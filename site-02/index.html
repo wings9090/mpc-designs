@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>دائرة العيادات الطبية الشعبية | بينتو</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+<link rel="stylesheet" href="../shared/base.css">
+<style>
+/* 02 بينتو: بلاطات غير متساوية، رمادي فاتح وأزرق واحد، زوايا 24px */
+:root{--bg:#f5f5f7;--surface:#fff;--ink:#1d1d1f;--muted:#6e6e73;--line:#e3e3e8;--line-strong:#c7c7cc;--accent:#0066cc;--accent-ink:#fff;--radius:24px;--radius-btn:99px;--gap:14px;--font:'Readex Pro',system-ui,sans-serif}
+.nav{position:sticky;top:12px;z-index:10;margin:12px auto 0;width:max-content;max-width:calc(100% - 24px);display:flex;gap:1.4rem;align-items:center;padding:.6rem 1.3rem;border-radius:99px;background:rgb(255 255 255 / .82);backdrop-filter:blur(18px);border:1px solid var(--line);font-size:.92rem}
+.nav a{text-decoration:none}.nav b{font-weight:700}
+.bento{display:grid;grid-template-columns:repeat(6,1fr);gap:var(--gap);padding-block:1.5rem}
+.t{background:var(--surface);border-radius:var(--radius);padding:1.6rem;border:1px solid var(--line);min-width:0}
+.t h2{font-size:1.35rem;font-weight:700;margin-bottom:1rem}
+.hero{grid-column:span 4;grid-row:span 2;background:#0a1530 url(https://www.mpc.gov.iq/upload/headlinepic2/ar/2.jpg) center/cover;background-blend-mode:multiply;color:#fff;display:flex;flex-direction:column;justify-content:flex-end;min-height:420px;border:0}
+.hero h1{font-size:clamp(2rem,4vw,3.4rem);font-weight:700;max-width:14ch}
+.hero p{opacity:.85;margin-top:.8rem;max-width:44ch;font-weight:300}
+.act{grid-column:span 2;display:flex;flex-direction:column;justify-content:space-between;gap:1.5rem;cursor:pointer;text-align:start;font-size:1.25rem;font-weight:700;transition:transform .2s}
+.act:hover{transform:scale(.985)}
+.act i{font-size:2.4rem}
+.act.blue{background:var(--accent);color:#fff;border:0}
+.act.dark{background:#1d1d1f;color:#fff;border:0;grid-column:span 3}
+.stat{grid-column:span 3;display:flex;align-items:baseline;gap:1rem}
+.stat b{font-size:3.6rem;font-weight:700;color:var(--accent);line-height:1}
+.c6{grid-column:span 6}.c3{grid-column:span 3}.c4{grid-column:span 4}.c2{grid-column:span 2}
+[data-mpc="services"] .m-grid{grid-template-columns:repeat(4,1fr)}
+[data-mpc="services"] .m-card{border:0;background:var(--bg);border-radius:18px}
+[data-mpc="services"] .m-card:nth-child(1){grid-column:span 2;background:#e8f1fb}
+[data-mpc="services"] .m-card:nth-child(5){grid-column:span 2;background:#0a1530;color:#fff}
+[data-mpc="services"] .m-card:nth-child(5) p{color:#b7c0d6}[data-mpc="services"] .m-card:nth-child(5)>i{color:#7fb6f5}
+.m-card,.m-step,.m-committee{border-radius:18px}
+.m-news{grid-template-columns:72px auto 1fr;align-items:center}
+.m-news img{display:block;width:72px;height:54px;object-fit:cover;border-radius:12px}
+.m-news:not(:has(img)){grid-template-columns:auto 1fr}
+footer{padding:2rem 0 1rem;color:var(--muted);font-size:.9rem;text-align:center}
+@media (max-width:900px){.bento{grid-template-columns:1fr}.bento>*{grid-column:auto!important;grid-row:auto!important}[data-mpc="services"] .m-grid{grid-template-columns:1fr 1fr}.nav a:not(.keep){display:none}.hero{min-height:320px}}
+</style>
+</head>
+<body>
+<nav class="nav"><b data-org="name"></b><a href="#services">الخدمات</a><a href="#driving">السياقة</a><a href="#prices">الأسعار</a><a href="#news">الأخبار</a></nav>
+<main class="wrap bento">
+  <section class="t hero"><h1 data-org="tagline"></h1><p data-org="intro"></p></section>
+  <button class="t act blue" data-open="nearest"><i class="ph ph-steering-wheel"></i>أقرب لجنة فحص سياقة</button>
+  <button class="t act" data-open="complaint"><i class="ph ph-megaphone" style="color:var(--accent)"></i>تقديم شكوى</button>
+  <button class="t act dark" data-open="meeting"><i class="ph ph-handshake"></i>طلب مقابلة المدير العام</button>
+  <div class="t stat"><b data-count-clinics></b><span>عيادة طبية شعبية مدرجة في الدليل، في بغداد والمحافظات</span></div>
+
+  <section class="t c6" id="services"><h2>الخدمات النوعية</h2><div data-mpc="services"></div></section>
+  <section class="t c3" id="prices"><h2>أسعار الخدمات</h2><div data-mpc="prices"></div></section>
+  <section class="t c3" id="meds"><h2>توفر الأدوية</h2><div data-mpc="meds"></div></section>
+  <section class="t c4" id="driving"><h2>لجان فحص السياقة</h2><div data-mpc="committees"></div></section>
+  <section class="t c2"><h2>أسئلة شائعة</h2><div data-mpc="faq"></div></section>
+  <section class="t c6" id="steps"><h2>علاجك الشهري في ثلاث خطوات</h2><div data-mpc="steps"></div></section>
+  <section class="t c3" id="news"><h2>أخبار وإعلانات</h2><div data-mpc="news" data-limit="5"></div></section>
+  <section class="t c3" id="clinics"><h2>دليل العيادات</h2><div data-mpc="clinics" style="max-height:520px;overflow:auto"></div></section>
+  <section class="t c6" id="jobs"><h2>فرص العمل</h2><div data-mpc="jobs"></div></section>
+  <section class="t c6"><h2>خدمات إضافية</h2><div data-mpc="extras"></div></section>
+</main>
+<footer class="wrap"><span data-org="law"></span></footer>
+<script src="../shared/data.js"></script><script src="../shared/app.js"></script>
+</body>
+</html>

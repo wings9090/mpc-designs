@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>دائرة العيادات الطبية الشعبية | التطبيق</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+<link rel="stylesheet" href="../shared/base.css">
+<style>
+/* 05 التطبيق: المهام أولاً، تبويبات بدل التمرير الطويل، شريط سفلي على الهاتف */
+:root{--bg:#eef4f6;--surface:#fff;--ink:#0c2530;--muted:#557079;--line:#d5e2e6;--line-strong:#9db6bd;--accent:#0e7490;--accent-ink:#fff;--radius:16px;--radius-btn:12px;--font:'Tajawal',system-ui,sans-serif}
+body{padding-bottom:90px}
+.head{background:var(--accent);color:#fff;padding:1.4rem 0 5.5rem;border-radius:0 0 28px 28px}
+.head .wrap{display:flex;justify-content:space-between;align-items:center;gap:1rem}
+.head small{opacity:.8}.head h1{font-size:1.5rem;font-weight:800}
+.head button{background:rgb(255 255 255 / .16);border:0;color:#fff;border-radius:12px;padding:.6rem .8rem;cursor:pointer;font-size:1.2rem}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:-4rem}
+.tile{background:var(--surface);border:0;border-radius:var(--radius);padding:1.4rem 1rem;display:grid;gap:.7rem;justify-items:center;text-align:center;font-weight:700;font-size:1.02rem;cursor:pointer;box-shadow:0 10px 30px rgb(14 116 144 / .14);transition:transform .15s}
+.tile:active{transform:scale(.97)}
+.tile i{font-size:2rem;width:60px;height:60px;display:grid;place-items:center;border-radius:18px;background:#e0f0f4;color:var(--accent)}
+.tabs{display:flex;gap:.5rem;overflow-x:auto;margin:2rem 0 1rem;padding-bottom:.3rem;scrollbar-width:none}
+.tab{flex:none;padding:.6rem 1.2rem;border-radius:99px;border:0;background:var(--surface);cursor:pointer;font-weight:700;color:var(--muted)}
+.tab[aria-selected="true"]{background:var(--ink);color:#fff}
+.panel{background:var(--surface);border-radius:var(--radius);padding:1.5rem}
+.panel[hidden]{display:none}
+.panel h2{font-size:1.3rem;font-weight:800;margin-bottom:1rem}
+[data-mpc="services"] .m-card,[data-mpc="extras"] .m-card,[data-mpc="jobs"] .m-card{background:var(--bg);border:0}
+.bar{position:fixed;inset-inline:12px;bottom:12px;z-index:20;background:var(--ink);color:#fff;border-radius:22px;display:grid;grid-template-columns:repeat(4,1fr);padding:.5rem;max-width:520px;margin-inline:auto}
+.bar button{background:none;border:0;color:#b9cdd3;display:grid;justify-items:center;gap:.1rem;font-size:.75rem;padding:.4rem;cursor:pointer;border-radius:16px}
+.bar button i{font-size:1.4rem}.bar button:hover{color:#fff;background:rgb(255 255 255 / .1)}
+@media (max-width:560px){.tiles{grid-template-columns:1fr 1fr}.tile.wide{grid-column:span 2;grid-template-columns:auto 1fr;justify-items:start;text-align:start;align-items:center}}
+</style>
+</head>
+<body>
+<header class="head"><div class="wrap">
+  <div><small data-org="ministry"></small><h1 data-org="name"></h1></div>
+  <button data-open="font" aria-label="تكبير الخط"><i class="ph ph-text-aa"></i></button>
+</div></header>
+<main class="wrap">
+  <div class="tiles">
+    <button class="tile" data-open="complaint"><i class="ph ph-megaphone"></i>تقديم شكوى</button>
+    <button class="tile" data-open="meeting"><i class="ph ph-handshake"></i>مقابلة المدير العام</button>
+    <button class="tile wide" data-open="nearest"><i class="ph ph-steering-wheel"></i>أقرب لجنة فحص سياقة</button>
+  </div>
+  <div class="tabs" role="tablist">
+    <button class="tab" role="tab" data-tab="services" aria-selected="true">الخدمات</button>
+    <button class="tab" role="tab" data-tab="meds">الأدوية</button>
+    <button class="tab" role="tab" data-tab="prices">الأسعار</button>
+    <button class="tab" role="tab" data-tab="driving">فحص السياقة</button>
+    <button class="tab" role="tab" data-tab="clinics">العيادات</button>
+    <button class="tab" role="tab" data-tab="news">الأخبار</button>
+    <button class="tab" role="tab" data-tab="jobs">فرص العمل</button>
+    <button class="tab" role="tab" data-tab="more">المزيد</button>
+  </div>
+  <section class="panel" id="services"><h2>الخدمات النوعية</h2><div data-mpc="services"></div><h2 style="margin-top:2rem">علاجك الشهري في ثلاث خطوات</h2><div data-mpc="steps"></div></section>
+  <section class="panel" id="meds" hidden><h2>توفر الأدوية</h2><div data-mpc="meds"></div></section>
+  <section class="panel" id="prices" hidden><h2>أسعار الخدمات</h2><div data-mpc="prices"></div></section>
+  <section class="panel" id="driving" hidden><h2>لجان فحص السياقة</h2><div data-mpc="committees"></div></section>
+  <section class="panel" id="clinics" hidden><h2>دليل العيادات</h2><div data-mpc="clinics"></div></section>
+  <section class="panel" id="news" hidden><h2>أخبار وإعلانات</h2><div data-mpc="news"></div></section>
+  <section class="panel" id="jobs" hidden><h2>فرص العمل</h2><div data-mpc="jobs"></div></section>
+  <section class="panel" id="more" hidden><h2>خدمات إضافية</h2><div data-mpc="extras"></div><h2 style="margin-top:2rem">أسئلة شائعة</h2><div data-mpc="faq"></div></section>
+</main>
+<nav class="bar" aria-label="تنقل سريع">
+  <button data-tab="services"><i class="ph ph-house"></i>الرئيسية</button>
+  <button data-tab="meds"><i class="ph ph-pill"></i>الأدوية</button>
+  <button data-tab="clinics"><i class="ph ph-map-pin"></i>العيادات</button>
+  <button data-open="track"><i class="ph ph-magnifying-glass"></i>شكواي</button>
+</nav>
+<script src="../shared/data.js"></script><script src="../shared/app.js"></script>
+<script>
+document.addEventListener('click', e => {
+  const b = e.target.closest('[data-tab]'); if (!b) return;
+  document.querySelectorAll('.panel').forEach(p => p.hidden = p.id !== b.dataset.tab);
+  document.querySelectorAll('.tab').forEach(t => t.setAttribute('aria-selected', t.dataset.tab === b.dataset.tab));
+  document.querySelector('.tabs').scrollIntoView({ behavior: 'smooth', block: 'start' });
+});
+</script>
+</body>
+</html>

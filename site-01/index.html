@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>دائرة العيادات الطبية الشعبية | الرسمي الهادئ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+<link rel="stylesheet" href="../shared/base.css">
+<style>
+/* 01 الرسمي الهادئ: لغة الخدمات الحكومية، أخضر صحي، زوايا 6px */
+:root{--bg:#fbfcfb;--surface:#fff;--ink:#12211d;--muted:#55655f;--line:#dbe3df;--line-strong:#9fb0a9;--accent:#0b5d4e;--accent-ink:#fff;--radius:6px;--font:'Noto Sans Arabic',system-ui,sans-serif}
+.top{background:var(--accent);color:#fff;font-size:.85rem}
+.top .wrap{display:flex;justify-content:space-between;padding-block:.4rem}
+.top button{background:none;border:0;color:#fff;cursor:pointer;text-decoration:underline}
+header.main{background:var(--surface);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}
+header.main .wrap{display:flex;align-items:center;gap:1.5rem;height:72px}
+.brand{display:flex;align-items:center;gap:.7rem;font-weight:800;text-decoration:none}
+.brand img{height:44px}
+nav{display:flex;gap:1.3rem;margin-inline-start:auto;font-weight:600;font-size:.95rem}
+nav a{text-decoration:none;padding-block:.3rem;border-bottom:3px solid transparent}
+nav a:hover{border-color:var(--accent)}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:3rem;align-items:center;padding-block:3.5rem}
+.hero h1{font-size:clamp(2rem,4.2vw,3.2rem);font-weight:800}
+.hero p{font-size:1.15rem;color:var(--muted);margin:1rem 0 1.6rem;max-width:48ch}
+.hero img{border-radius:var(--radius);aspect-ratio:4/3;object-fit:cover;width:100%;border:1px solid var(--line)}
+.tasks{background:#eaf2ef;border-block:1px solid var(--line)}
+.tasks .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;padding-block:1.5rem}
+.task{display:flex;gap:1rem;align-items:center;background:var(--surface);border:1px solid var(--line);border-inline-start:5px solid var(--accent);border-radius:var(--radius);padding:1.1rem;cursor:pointer;text-align:start}
+.task i{font-size:2rem;color:var(--accent)}
+.task b{display:block;font-size:1.05rem}
+.task span{color:var(--muted);font-size:.88rem}
+section.s{padding-block:3.5rem}
+section.s>.wrap>h2{font-size:1.8rem;font-weight:800;margin-bottom:.4rem}
+section.s>.wrap>.lead{color:var(--muted);margin-bottom:1.6rem;max-width:60ch}
+.alt{background:#f1f5f3}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+.two h2{font-size:1.5rem;margin-bottom:1rem}
+footer{background:#0a3d34;color:#d6e6e1;padding-block:2.5rem;font-size:.92rem}
+footer .wrap{display:flex;justify-content:space-between;gap:2rem;flex-wrap:wrap}
+@media (max-width:860px){nav{display:none}.hero .wrap,.two,.tasks .wrap{grid-template-columns:1fr}.hero .wrap{padding-block:2rem;gap:1.5rem}}
+</style>
+</head>
+<body>
+<div class="top"><div class="wrap"><span>جمهورية العراق / <span data-org="ministry"></span></span><button data-open="font">تكبير الخط</button></div></div>
+<header class="main"><div class="wrap">
+  <a class="brand" href="#"><img src="https://www.mpc.gov.iq/images/seal.png" alt="" onerror="this.remove()"><span data-org="name"></span></a>
+  <nav><a href="#services">الخدمات</a><a href="#driving">فحص السياقة</a><a href="#prices">الأسعار والأدوية</a><a href="#clinics">العيادات</a><a href="#news">الأخبار</a></nav>
+</div></header>
+
+<section class="hero"><div class="wrap">
+  <div>
+    <h1 data-org="tagline"></h1>
+    <p data-org="intro"></p>
+    <a class="m-btn" href="#clinics"><i class="ph ph-map-pin"></i> ابحث عن عيادتك</a>
+  </div>
+  <img src="https://www.mpc.gov.iq/upload/headlinepic2/ar/2.jpg" alt="من نشاطات دائرة العيادات الطبية الشعبية" onerror="this.remove()">
+</div></section>
+
+<div class="tasks"><div class="wrap">
+  <button class="task" data-open="complaint"><i class="ph ph-megaphone"></i><span><b>تقديم شكوى</b><span>نستلمها برقم مرجعي للمتابعة</span></span></button>
+  <button class="task" data-open="meeting"><i class="ph ph-handshake"></i><span><b>مقابلة المدير العام</b><span>اطلب موعداً من مكانك</span></span></button>
+  <button class="task" data-open="nearest"><i class="ph ph-steering-wheel"></i><span><b>أقرب لجنة فحص سياقة</b><span>حسب موقعك الحالي</span></span></button>
+</div></div>
+
+<section class="s" id="services"><div class="wrap"><h2>الخدمات النوعية</h2><p class="lead">ما تقدمه العيادات الطبية الشعبية واللجان والمختبرات التابعة للدائرة.</p><div data-mpc="services"></div></div></section>
+<section class="s alt" id="steps"><div class="wrap"><h2>كيف تحصل على علاجك الشهري</h2><p class="lead">ثلاث خطوات لمرضى الأمراض المزمنة.</p><div data-mpc="steps"></div></div></section>
+<section class="s" id="driving"><div class="wrap"><h2>لجان فحص السياقة</h2><p class="lead">اضغط «حدّد موقعي» لترتيب اللجان من الأقرب إليك.</p><div data-mpc="committees"></div></div></section>
+<section class="s alt" id="prices"><div class="wrap two">
+  <div><h2>أسعار الخدمات</h2><div data-mpc="prices"></div></div>
+  <div><h2>توفر الأدوية</h2><div data-mpc="meds"></div></div>
+</div></section>
+<section class="s" id="clinics"><div class="wrap"><h2>دليل العيادات</h2><div data-mpc="clinics"></div></div></section>
+<section class="s alt" id="news"><div class="wrap two">
+  <div><h2>أخبار وإعلانات</h2><div data-mpc="news" data-limit="6"></div></div>
+  <div><h2>أسئلة شائعة</h2><div data-mpc="faq"></div></div>
+</div></section>
+<section class="s" id="jobs"><div class="wrap"><h2>فرص العمل</h2><div data-mpc="jobs"></div></div></section>
+<section class="s alt"><div class="wrap"><h2>خدمات إضافية</h2><div data-mpc="extras"></div></div></section>
+
+<footer><div class="wrap"><div><b data-org="name"></b><br><span data-org="law"></span></div><div>المختبر الاستشاري: بغداد، القادسية، قرب مستشفى اليرموك</div></div></footer>
+<script src="../shared/data.js"></script><script src="../shared/app.js"></script>
+</body>
+</html>

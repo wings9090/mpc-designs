@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>دائرة العيادات الطبية الشعبية | المؤسسي</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+<link rel="stylesheet" href="../shared/base.css">
+<style>
+/* 09 المؤسسي: مستوحى من لغة IBM Carbon (ليس الحزمة الرسمية). شبكة صارمة، زوايا حادة، أزرق واحد */
+:root{--bg:#f4f4f4;--surface:#fff;--ink:#161616;--muted:#525252;--line:#e0e0e0;--line-strong:#8d8d8d;--accent:#0f62fe;--accent-ink:#fff;--radius:0px;--gap:1px;--font:'IBM Plex Sans Arabic',system-ui,sans-serif}
+header{background:#161616;color:#fff;position:sticky;top:0;z-index:10}
+header .wrap{display:flex;height:48px;align-items:stretch;padding:0;max-width:none}
+header b{display:flex;align-items:center;padding-inline:1rem;font-weight:600;border-inline-end:1px solid #393939}
+header nav{display:flex}
+header nav a{display:flex;align-items:center;padding-inline:1rem;text-decoration:none;font-size:.9rem;color:#c6c6c6;border-bottom:3px solid transparent}
+header nav a:hover{background:#262626;color:#fff;border-color:var(--accent)}
+header .r{margin-inline-start:auto;display:flex}
+header .r button{background:none;border:0;color:#fff;width:48px;cursor:pointer;font-size:1.2rem}
+header .r button:hover{background:#262626}
+.hero{background:var(--surface);border-bottom:1px solid var(--line)}
+.hero .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:0;padding:0;max-width:none}
+.hero .t{grid-column:span 2;padding:4rem 2rem 3rem}
+.hero h1{font-size:clamp(2rem,3.6vw,3.4rem);font-weight:300;max-width:18ch}
+.hero p{color:var(--muted);margin-top:1.2rem;max-width:50ch}
+.hero .a{grid-column:span 2;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line)}
+.hero .a button{background:var(--bg);border:0;padding:1.4rem;display:flex;flex-direction:column;justify-content:space-between;gap:2.5rem;text-align:start;cursor:pointer;font-size:1.15rem;min-height:150px}
+.hero .a button:hover{background:#e8e8e8}
+.hero .a button.p{background:var(--accent);color:#fff;grid-column:span 2;min-height:110px;flex-direction:row;align-items:flex-end}
+.hero .a button.p:hover{background:#0353e9}
+.hero .a i{font-size:1.6rem;align-self:flex-end}
+.band{display:grid;grid-template-columns:1fr 3fr;border-bottom:1px solid var(--line)}
+.band>h2{padding:2.5rem 2rem;font-size:1.6rem;font-weight:400;border-inline-end:1px solid var(--line)}
+.band>h2 small{display:block;font-size:.85rem;color:var(--muted);margin-top:.6rem;font-weight:400}
+.band>div{padding:2.5rem 2rem;min-width:0}
+.band.w{background:var(--surface)}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+.cols h3.h{font-weight:600;margin-bottom:1rem}
+.m-grid{background:var(--line);border:1px solid var(--line)}
+[data-mpc="services"] .m-grid{grid-template-columns:repeat(4,1fr)}
+@media (max-width:900px){[data-mpc="services"] .m-grid{grid-template-columns:1fr 1fr}}
+.m-card{border:0;min-height:170px}
+.m-card>i{order:9;margin-top:auto;align-self:flex-end;color:var(--ink)}
+.m-btn{font-weight:400;padding-inline-end:3rem}
+.m-chip{border-radius:0;border-width:0 0 2px;border-color:transparent;padding-inline:.2rem;margin-inline-end:1rem}
+.m-chip[aria-pressed="true"]{background:none;color:var(--ink);border-color:var(--accent);font-weight:600}
+.m-status{border-radius:99px}
+.m-input{border-width:0 0 1px;background:var(--bg)}
+.band.w .m-card{background:var(--bg)}
+.m-step,.m-committee{border:0;background:var(--bg)}.band:not(.w) .m-step,.band:not(.w) .m-committee{background:var(--surface)}
+footer{background:#161616;color:#c6c6c6;padding:2rem;font-size:.88rem}
+@media (max-width:900px){header nav{display:none}.hero .wrap,.band,.cols{grid-template-columns:1fr}.hero .t,.hero .a{grid-column:auto}.hero .t{padding:2.5rem 1rem}.band>h2{border:0;padding:1.8rem 1rem 0}.band>div{padding:1.2rem 1rem 2rem}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><b data-org="name"></b><nav><a href="#services">الخدمات</a><a href="#driving">فحص السياقة</a><a href="#prices">الأسعار والأدوية</a><a href="#clinics">العيادات</a><a href="#news">الأخبار</a><a href="#jobs">الوظائف</a></nav><div class="r"><button data-open="track" aria-label="متابعة الشكوى"><i class="ph ph-magnifying-glass"></i></button><button data-open="font" aria-label="تكبير الخط"><i class="ph ph-text-aa"></i></button></div></div></header>
+<section class="hero"><div class="wrap">
+  <div class="t"><h1 data-org="tagline"></h1><p data-org="intro"></p></div>
+  <div class="a">
+    <button data-open="complaint">تقديم شكوى<i class="ph ph-arrow-up-left"></i></button>
+    <button data-open="meeting">مقابلة المدير العام<i class="ph ph-arrow-up-left"></i></button>
+    <button class="p" data-open="nearest">أقرب لجنة فحص سياقة<i class="ph ph-crosshair" style="margin-inline-start:auto"></i></button>
+  </div>
+</div></section>
+<section class="band" id="services"><h2>الخدمات النوعية<small>8 خدمات في العيادات واللجان</small></h2><div data-mpc="services"></div></section>
+<section class="band w" id="prices"><h2>الأسعار والأدوية<small>ابحث قبل أن تراجع</small></h2><div class="cols"><div><h3 class="h">أسعار الخدمات</h3><div data-mpc="prices"></div></div><div id="meds"><h3 class="h">توفر الأدوية</h3><div data-mpc="meds"></div></div></div></section>
+<section class="band" id="driving"><h2>لجان فحص السياقة<small>الترتيب حسب قربها منك</small></h2><div data-mpc="committees"></div></section>
+<section class="band w"><h2>العلاج الشهري<small>لمرضى الأمراض المزمنة</small></h2><div data-mpc="steps"></div></section>
+<section class="band" id="clinics"><h2>دليل العيادات</h2><div data-mpc="clinics"></div></section>
+<section class="band w" id="news"><h2>أخبار وإعلانات</h2><div data-mpc="news" data-limit="6"></div></section>
+<section class="band" id="jobs"><h2>الوظائف</h2><div data-mpc="jobs"></div></section>
+<section class="band w"><h2>مساعدة<small>أسئلة شائعة وأدوات</small></h2><div class="cols"><div data-mpc="faq"></div><div data-mpc="extras"></div></div></section>
+<footer><span data-org="name"></span> / <span data-org="law"></span></footer>
+<script src="../shared/data.js"></script><script src="../shared/app.js"></script>
+</body>
+</html>
